@@ -39,6 +39,9 @@ class BDXFlatEnvCfg_PLAY(BDXFlatEnvCfg):
         # remove random pushing
         self.events.base_external_force_torque = None
         self.events.push_robot = None
+
+        self.viewer.eye = (1.5, 1.5, 1.5)
+        self.viewer.lookat = (0.0, 0.0, 0.5)
         
         self.commands.base_velocity.ranges.lin_vel_x = (0.3, 0.3)
         self.commands.base_velocity.ranges.lin_vel_y = (0.0, 0.0)
