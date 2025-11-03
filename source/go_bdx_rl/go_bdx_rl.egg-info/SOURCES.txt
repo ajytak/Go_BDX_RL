@@ -1,0 +1,10 @@
+pyproject.toml
+setup.py
+go_bdx_rl/__init__.py
+go_bdx_rl/ui_extension_example.py
+go_bdx_rl.egg-info/PKG-INFO
+go_bdx_rl.egg-info/SOURCES.txt
+go_bdx_rl.egg-info/dependency_links.txt
+go_bdx_rl.egg-info/not-zip-safe
+go_bdx_rl.egg-info/requires.txt
+go_bdx_rl.egg-info/top_level.txt
