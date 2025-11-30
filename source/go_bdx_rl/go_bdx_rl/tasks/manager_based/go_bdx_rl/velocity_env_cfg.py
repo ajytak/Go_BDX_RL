@@ -138,8 +138,25 @@ class ObservationsCfg:
             self.enable_corruption = True
             self.concatenate_terms = True
 
+    @configclass
+    class AMPObservationsCfg(ObsGroup):
+        amp_observation_vec = ObsTerm(func=mdp.amp_observation, params={
+            'asset_cfg': SceneEntityCfg('robot', joint_names=".*"),
+            'foot_asset_cfg': SceneEntityCfg('robot', body_names=".*_foot_link")
+        },
+        history_length=2,
+        )
+        def __post_init__(self):
+            self.enable_corruption = False
+            self.concatenate_terms = True
+    
+
     # observation groups
     policy: PolicyCfg = PolicyCfg()
+    amp_obs = AMPObservationsCfg()
+
+
+    
 
 
 @configclass
@@ -294,7 +311,7 @@ class LocomotionVelocityRoughEnvCfg(ManagerBasedRLEnvCfg):
         """Post initialization."""
         # general settings
         self.decimation = 4
-        self.episode_length_s = 20.0
+        self.episode_length_s = 5.0
         # simulation settings
         self.sim.dt = 0.005
         self.sim.render_interval = self.decimation
